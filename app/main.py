@@ -1,7 +1,9 @@
 from fastapi import FastAPI
 
+from app.config import settings
+
 app = FastAPI(
-    title="ProjectHub API",
+    title=settings.app_name,
     description="A REST API for team and project management.",
     version="0.1.0",
 )
