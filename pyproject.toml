@@ -13,6 +13,7 @@ dependencies = [
     "pydantic-settings",
     "sqlalchemy",
     "psycopg[binary]",
+    "alembic",
 ]
 
 [project.optional-dependencies]
