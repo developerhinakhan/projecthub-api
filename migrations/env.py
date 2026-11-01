@@ -5,6 +5,8 @@ from sqlalchemy import engine_from_config, pool
 
 from app.config import settings
 from app.database import Base
+from app.models.team import Team  # noqa: F401
+from app.models.team_member import TeamMember  # noqa: F401
 from app.models.user import User  # noqa: F401
 
 # this is the Alembic Config object, which provides
