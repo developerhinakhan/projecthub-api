@@ -14,6 +14,7 @@ dependencies = [
     "sqlalchemy",
     "psycopg[binary]",
     "alembic",
+    "email-validator",
 ]
 
 [project.optional-dependencies]
