@@ -15,6 +15,7 @@ dependencies = [
     "psycopg[binary]",
     "alembic",
     "email-validator",
+    "bcrypt",
 ]
 
 [project.optional-dependencies]
