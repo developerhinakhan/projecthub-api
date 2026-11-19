@@ -1,10 +1,12 @@
 import pytest
+from fastapi.testclient import TestClient
 from sqlalchemy import create_engine
 from sqlalchemy.engine import make_url
 from sqlalchemy.orm import sessionmaker
 
 from app.config import settings
-from app.database import Base
+from app.database import Base, get_db
+from app.main import app
 from app.models.project import Project  # noqa: F401
 from app.models.project_member import ProjectMember  # noqa: F401
 from app.models.team import Team  # noqa: F401
@@ -31,3 +33,13 @@ def db_session():
     finally:
         db.close()
         Base.metadata.drop_all(test_engine)
+
+
+@pytest.fixture
+def client(db_session):
+    def override_get_db():
+        yield db_session
+
+    app.dependency_overrides[get_db] = override_get_db
+    yield TestClient(app)
+    app.dependency_overrides.clear()
