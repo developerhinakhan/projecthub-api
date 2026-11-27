@@ -14,12 +14,15 @@ dependencies = [
     "sqlalchemy",
     "psycopg[binary]",
     "alembic",
+    "email-validator",
+    "bcrypt",
 ]
 
 [project.optional-dependencies]
 dev = [
     "pytest",
     "ruff",
+    "httpx2",
 ]
 
 [tool.setuptools.packages.find]
